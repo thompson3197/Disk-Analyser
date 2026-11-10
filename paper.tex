@@ -1,0 +1,56 @@
+\documentclass[11pt,article,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{\textbf{ccdisk: A High-Performance, Deterministic Python 2.7 Disk Analyzer and Storage Management Utility}}
+
+\author{
+  \textbf{Dr. Travis Lee Thompson}\thanks{Independent Systems Researcher \& Software Author. ORCID: \href{https://orcid.org/0009-0001-7917-0306}{0009-0001-7917-0306}} \\
+  \textit{Independent Systems Research Laboratory}
+}
+
+\date{November 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Disk space management in constrained or legacy computing environments requires high-performance, deterministic execution without risking stack overflow or unintended filesystem modifications. We present \texttt{ccdisk}, a modular, non-recursive disk analysis and storage utility implemented in Python 2.7 \cite{vesely2004python}. \texttt{ccdisk} incorporates iterative queue-based directory traversal, inode-level hard link de-duplication, sparse file block allocation metrics, squarified treemap layout algorithms \cite{bruls2000squarified, johnson1991treemaps}, automated build artifact and cache detection, and staged cleanup sets protected by rigorous path safety barriers and operating system Trash migration.
+\end{abstract}
+
+\section{Introduction}
+Disk visualization tools frequently depend on recursive directory walkers that risk stack exhaustion on deep hierarchies or fail to de-duplicate hard-linked inodes, leading to inflated storage reporting. In specialized computing environments---such as offline legacy systems, embedded telemetry diagnostic stations, and deterministic runtimes---administrators require transparent tools that adhere to strict safety ground rules: zero recursion, static memory allocation patterns, explicit runtime assertions, and non-destructive cleanup workflows.
+
+\section{Core Architecture}
+\texttt{ccdisk} is structured into twelve modular subsystems mirroring systems engineering best practices:
+\begin{enumerate}
+    \item \textbf{Iterative Scanner:} Non-recursive queue walker handling permission exceptions gracefully without halting traversal.
+    \item \textbf{Storage Metrics Engine:} Distinguishes apparent file size from actual allocated disk blocks ($st\_blocks \times 512$), correctly handling sparse files.
+    \item \textbf{Inode De-duplication \& Symlink Safety:} Tracks device and inode tuples $(\text{st\_dev}, \text{st\_ino})$ to ensure hard-linked files share storage costs exactly once, while avoiding symlink target traversal loops.
+    \item \textbf{Squarified Treemap Layouts:} Organizes hierarchical items into aspect-ratio optimized 2D rectangles \cite{johnson1991treemaps}.
+    \item \textbf{Interactive Navigation \& Inspection:} Manages breadcrumb stacks, scope zooming, metadata inspection, and largest-children rankings.
+    \item \textbf{Reclaimable Detection \& Staging:} Automatically flags build directories (\texttt{node\_modules}, \texttt{target}, \texttt{\_\_pycache\_\_}) and user caches, supporting staged cleanup sets with duplicate protection and volume free space predictions.
+    \item \textbf{Safety Barriers \& Trash Migration:} Enforces strict path protection guards (blocking root directories and paths outside scan scopes) and executes recoverable migrations to the operating system Trash.
+\end{enumerate}
+
+\section{Squarified Treemap Mathematics}
+Following the squarified layout methodology \cite{bruls2000squarified}, given rectangular areas proportional to file disk usage $s_i$, the aspect ratio $r$ for a row of width $w$ and total area $s$ is minimized by evaluating:
+\begin{equation}
+r = \max\left(\frac{w^2 \cdot \max(s_i)}{s^2}, \frac{s^2}{w^2 \cdot \min(s_i)}\right)
+\end{equation}
+This mathematical optimization prevents unreadable, elongated slivers when rendering directories containing thousands of small files.
+
+\section{Conclusion}
+\texttt{ccdisk} provides a robust, fully deterministic storage management solution for Python 2.7 environments \cite{vesely2004python}. By combining rigorous safety assertions, hard link de-duplication, and recoverable trash migration, it bridges the gap between high-performance system telemetry and safe disk administration.
+
+\bibliographystyle{plain}
+\bibliography{paper}
+
+\end{document}

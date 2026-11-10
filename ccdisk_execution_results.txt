@@ -1,0 +1,46 @@
+=== CCDISK MASTER PIPELINE EXECUTION REPORT ===
+Target Root: F:\Documents\CTU\PYTHON CODE\Coding Challenge #145\testroot
+Total Items Discovered: 26
+Total Apparent Size: 109051935 bytes
+Total De-duplicated Disk Usage: 109051935 bytes
+
+--- STEP 7: Age Classification ---
+  * api -> Age: 0.0 days (Recent (<30d))
+  * target -> Age: 0.0 days (Recent (<30d))
+  * .cache -> Age: 0.0 days (Recent (<30d))
+  * src -> Age: 0.0 days (Recent (<30d))
+  * archive.bin -> Age: 0.0 days (Recent (<30d))
+  * cache.db -> Age: 0.0 days (Recent (<30d))
+  * projects -> Age: 0.0 days (Recent (<30d))
+  * big.js -> Age: 0.0 days (Recent (<30d))
+  * hidden.txt -> Age: 0.0 days (Recent (<30d))
+  * lib -> Age: 0.0 days (Recent (<30d))
+  * node_modules -> Age: 0.0 days (Recent (<30d))
+  * old -> Age: 0.0 days (Recent (<30d))
+  * app -> Age: 0.0 days (Recent (<30d))
+  * video.bin -> Age: 0.0 days (Recent (<30d))
+  * locked -> Age: 0.0 days (Recent (<30d))
+  * photo2.bin -> Age: 0.0 days (Recent (<30d))
+  * other.js -> Age: 0.0 days (Recent (<30d))
+  * docs -> Age: 0.0 days (Recent (<30d))
+  * notes.txt -> Age: 0.0 days (Recent (<30d))
+  * webapp -> Age: 0.0 days (Recent (<30d))
+  * media -> Age: 0.0 days (Recent (<30d))
+  * api.bin -> Age: 0.0 days (Recent (<30d))
+  * photo1.bin -> Age: 0.0 days (Recent (<30d))
+  * report.pdf -> Age: 0.0 days (Recent (<30d))
+  * app.js -> Age: 0.0 days (Recent (<30d))
+  * .Trash -> Age: 0.0 days (Recent (<30d))
+
+--- STEP 9: Reclaimable Build & Cache Detection ---
+  * [RECLAIMABLE] F:\Documents\CTU\PYTHON CODE\Coding Challenge #145\testroot\projects\api\target (0 bytes)
+  * [RECLAIMABLE] F:\Documents\CTU\PYTHON CODE\Coding Challenge #145\testroot\.cache (0 bytes)
+  * [RECLAIMABLE] F:\Documents\CTU\PYTHON CODE\Coding Challenge #145\testroot\projects\webapp\node_modules (0 bytes)
+Total Reclaimable Candidate Space: 0 bytes
+
+--- STEP 10 & 11: Staging & Safety Review ---
+Safety Check: Blocked system protected path 'C:\Windows'? True
+
+--- STEP 12: Safe Trash Migration ---
+
+Pipeline execution completed successfully.

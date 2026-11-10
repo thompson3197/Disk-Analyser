@@ -1,0 +1,8 @@
+---
+
+<ElicitationsGroup message="To further prepare your repository for JOSS submission:">
+  <Elicitation label="Generate the paper.bib reference bibliography file" query="Generate the complete bibtex paper.bib file containing citations for JOSS submission."/>
+  <Elicitation label="Review the JOSS open-source software checklist" query="Review the complete JOSS checklist for software metadata, installation guides, and automated tests."/>
+</ElicitationsGroup>
+
+<FollowUp label="Want me to generate the corresponding `paper.bib` bibliography file for your JOSS submission?" query="Yes, generate the bibtex `paper.bib` file for the JOSS paper manuscript."/>
